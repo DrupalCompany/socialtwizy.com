@@ -10,7 +10,7 @@ PROJECT_DIR = Path(__file__).parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = config('DEBUG', default=True, cast=bool)
 
 DATABASES = {
     'default': dj_database_url.config(
@@ -32,7 +32,7 @@ INSTALLED_APPS = (
 
 
     'django.contrib.admin',
-
+    'import_export',
 
     'bootcamp.activities',
     'bootcamp.articles',
