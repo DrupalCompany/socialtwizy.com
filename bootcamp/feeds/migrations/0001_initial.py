@@ -24,7 +24,7 @@ class Migration(migrations.Migration):
                 ('post', models.TextField(max_length=255)),
                 ('likes', models.IntegerField(default=0)),
                 ('comments', models.IntegerField(default=0)),
-                ('parent', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='groups.Feed')),
+                #('parent', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='feeds.Feed')),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
             options={

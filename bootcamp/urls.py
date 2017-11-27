@@ -26,7 +26,6 @@ urlpatterns = [
         name='save_uploaded_picture'),
     url(r'^settings/password/$', core_views.password, name='password'),
     url(r'^network/$', core_views.network, name='network'),
-    url(r'^groups/', include('bootcamp.groups.urls')),
     url(r'^feeds/', include('bootcamp.feeds.urls')),
     url(r'^questions/', include('bootcamp.questions.urls')),
     url(r'^articles/', include('bootcamp.articles.urls')),
