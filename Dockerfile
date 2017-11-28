@@ -5,7 +5,7 @@ ADD ./requirements/local.txt /requirements/local.txt
 ADD ./entrypoint.sh /entrypoint.sh
 ADD . /bootcamp
 
-RUN pip install -r local.txt
+RUN pip install -r ./requirements/local.txt
 
 RUN groupadd -r django && useradd -r -g django django
 
