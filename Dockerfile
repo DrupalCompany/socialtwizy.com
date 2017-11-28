@@ -1,22 +1,22 @@
-FROM python:3.5
+FROM python:latest
 ENV PYTHONUNBUFFERED 1
 
-ADD ./requirements/local.txt /requirements/local.txt
+#ENV C_FORCE_ROOT true
 
-ADD ./requirements/base.txt /requirements/base.txt
+ENV APP_USER SocialTwizy
+ENV APP_ROOT /src
+RUN mkdir /src;
+RUN groupadd -r ${APP_USER} \
+    && useradd -r -m \
+    --home-dir ${APP_ROOT} \
+    -s /usr/sbin/nologin \
+    -g ${APP_USER} ${APP_USER}
 
-ADD ./requirements/production.txt /requirements/production.txt
+WORKDIR ${APP_ROOT}
 
-ADD ./entrypoint.sh /entrypoint.sh
+RUN mkdir /config
+ADD config/requirements.pip /config/
+RUN pip install -r /config/requirements.pip
 
-ADD . /bootcamp
-
-RUN pip install -r ./requirements/local.txt
-
-RUN groupadd -r django && useradd -r -g django django
-
-RUN chown -R django /bootcamp && chmod +x entrypoint.sh && chown django entrypoint.sh
-
-WORKDIR /bootcamp
-
-ENTRYPOINT ["/entrypoint.sh"]
+USER ${APP_USER}
+ADD . ${APP_ROOT}
