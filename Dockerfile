@@ -1,7 +1,7 @@
 FROM python:3.5
 ENV PYTHONUNBUFFERED 1
 
-ADD ./requirements.txt /requirements.txt
+ADD ./requirements/requirements.txt /requirements/requirements.txt
 ADD ./entrypoint.sh /entrypoint.sh
 ADD . /bootcamp
 
