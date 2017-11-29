@@ -2,7 +2,7 @@ import dj_database_url
 from decouple import Csv, config
 from unipath import Path
 
-PROJECT_DIR = Path(__file__).parent
+PROJECT_DIR = '.'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
